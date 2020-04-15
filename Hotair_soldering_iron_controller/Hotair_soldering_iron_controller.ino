@@ -1,3 +1,12 @@
+/* 
+This sketch is for hotair soldering iron controller.
+Microcontroller: Atmega 328P.
+
+Copyright (C) 2019 Martynas J. 
+f5AFfMhv@protonmail.com  
+https://github.com/f5AFfMhv
+ */
+
 #include <Wire.h>
 #include <LiquidCrystal_PCF8574.h>
 
