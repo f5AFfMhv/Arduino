@@ -8,6 +8,12 @@
   created 2020-04-03
   by Martynas J.
 
+v2.1
+  Changed second rotary encoder function to work as window text size adjuster.
+  It uses standard keypress combination which is understood by most of applications:
+    Ctrl + + increase text size
+    Ctrl + - decrease text size
+
   This code is in the public domain.
 
   https://github.com/f5AFfMhv
@@ -44,7 +50,7 @@ Encoder myEnc(2, 3);    // rotary encoder pin A and B
 int buttonState[ALL_BUTTONS] = {HIGH}; // state of each button in current cycle
 int previousButtonState[ALL_BUTTONS] = {HIGH}; // state of each button in previous cycle
 
-bool debugFlag = 0;            // flag for debug output over serial monitor
+bool debugFlag = 1;            // flag for debug output over serial monitor
 bool encoderButtonFlag = 0;    // for switching encoder functions
 
 long oldPosition  = -999;     // for rotary encoder
@@ -158,13 +164,15 @@ void keyboard_shortcut(int buttonID) {
       Keyboard.press('P');
       break;
     case 15:
-      Keyboard.press('R');
+      Keyboard.release(KEY_LEFT_SHIFT);
+      Keyboard.press('+');
       break;
     case 16:
       Keyboard.press('T');
       break;
     case 17:
-      Keyboard.press('U');
+      Keyboard.release(KEY_LEFT_SHIFT);
+      Keyboard.press('-');
       break;
     case 18:
       Keyboard.press('V');
